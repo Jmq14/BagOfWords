@@ -64,8 +64,6 @@ def evaluate_recognition_system(num_workers=2):
     for i, img_path in enumerate(test_data['image_names']):
         print(i)
         f = get_image_feature("../data/" + img_path[0], dictionary, SPM_layer_num, dictionary.shape[0])
-        print(f)
-        print(f.shape)
         intersection = distance_to_set(f, features)
         index = np.argmax(intersection)
         predicted_label = labels[index]
